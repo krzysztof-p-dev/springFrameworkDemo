@@ -1,7 +1,6 @@
 package com.springframework.myspringapp.models;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,7 +8,6 @@ import java.util.Objects;
 import java.util.Set;
 
 @Data
-@RequiredArgsConstructor
 @Entity
 public class Book {
 
@@ -19,6 +17,12 @@ public class Book {
     private String title;
     private String isbn;
     private String publisher;
+
+    public Book(String title, String isbn, String publisher) {
+        this.title = title;
+        this.isbn = isbn;
+        this.publisher = publisher;
+    }
 
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
