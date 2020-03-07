@@ -25,7 +25,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     }
 
     private void initData() {
-
         Publisher publisher = new Publisher();
         publisher.setName("foo");
         publisherRepository.save(publisher);
@@ -47,6 +46,4 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         authorRepository.save(rod);
         bookRepository.save(noEJB);
     }
-
-
 }
