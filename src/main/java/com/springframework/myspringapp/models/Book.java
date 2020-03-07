@@ -1,6 +1,7 @@
 package com.springframework.myspringapp.models;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -23,6 +25,13 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
+    }
+
+    public Book(String title, String isbn, Publisher publisher, Set<Author> authors) {
+        this.title = title;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.authors = authors;
     }
 
     @ManyToMany
